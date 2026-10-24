@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WEST INDIA KOMBAT — Сюжетные кампании + Онлайн</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar"><div class="brand"><div class="brandmark">✦</div><div><div class="brandname">WEST INDIA <b>KOMBAT</b></div><div class="brandtag">ТУРНИР ДЕВЯТИ • ULTIMATE ARCADE</div></div></div><div class="topright"><span class="pill">⚔ STORY EDITION 3.0</span><button class="ghost" id="onlineOpenBtn">🌐 ИГРАТЬ ПО СЕТИ</button><button class="ghost" id="soundBtn" title="Включить или выключить звук">♫ ЗВУК: ВКЛ</button><button class="ghost" id="fullscreenBtn" title="Полный экран">⛶</button></div></header>
+<main class="game-shell" id="shell">
+<canvas id="game" width="1280" height="720" aria-label="Арена боя"></canvas>
+<div class="game-hud hidden" id="hud"><div class="hud-main"><div class="health-panel p1"><div class="health-top"><span id="p1Name">БОЕЦ</span><span class="round-pips" id="p1Pips"><i class="pip"></i><i class="pip"></i></span></div><div class="healthbar"><div class="lag" id="p1Lag"></div><div class="fill" id="p1Life"></div><div class="gloss"></div></div><div class="energybar"><span id="p1Energy"></span></div></div><div class="timer-card"><div class="timer-num" id="clock">99</div><div class="timer-label">РАУНД <span id="roundNum">1</span></div></div><div class="health-panel p2"><div class="health-top"><span id="p2Name">БОЕЦ</span><span class="round-pips" id="p2Pips"><i class="pip"></i><i class="pip"></i></span></div><div class="healthbar reverse"><div class="lag" id="p2Lag"></div><div class="fill" id="p2Life"></div><div class="gloss"></div></div><div class="energybar"><span id="p2Energy"></span></div></div></div></div>
+<div id="bossMeter" class="boss-meter hidden"><span id="bossName">БОСС</span><div class="boss-bar"><div id="bossFill"></div></div></div><div class="announcement hidden" id="announcement"><div class="announce-main" id="announcementMain"></div><div class="announce-sub" id="announcementSub"></div></div>
+<div class="combo-label hidden" id="combo"></div><div class="cinematic-strip hidden" id="fightStrip"><span class="subline" id="modeLabel">КЛАССИЧЕСКИЙ БОЙ</span><span class="subline alt" id="fightStatus">● ГОТОВНОСТЬ</span></div><div id="toast" class="floating-toast hidden"></div>
+<section class="screen select-screen" id="selectScreen"><div class="select-title"><div class="eyebrow">ARE YOU READY FOR THE NEXT BATTLE?</div><h1>ВЫБЕРИ СВОЕГО БОЙЦА</h1><p>9 бойцов • 9 кампаний • 54 главы-испытания • онлайн и кооператив</p></div><div class="mode-banner"><span class="mode-chip">📜 9 CAMPAIGNS</span><span class="mode-chip">⚡ CHAIN COMBOS</span><span class="mode-chip">✦ 9 FIGHTERS</span><span class="mode-chip">♛ ARCADE LADDER</span><span class="mode-chip">♨ RETRO BLOOD</span></div><div class="selection"><div class="fighter-preview active" id="previewOne" data-side="0"><img class="preview-img" id="previewOneImg" alt="Игрок 1"><div class="preview-head"><span class="corner"><em>P1</em> ТЫ</span><button class="switch-btn" data-side="0">ВЫБРАТЬ</button></div><div class="preview-details"><h2 id="previewOneName"></h2><p id="previewOneDesc"></p><div class="statrow">СИЛА<div class="statbar"><span id="p1Pow"></span></div></div><div class="statrow">СКОР<div class="statbar"><span id="p1Spd"></span></div></div></div></div><div class="roster-area"><div class="roster-tabs"><button data-side="0" class="active">◀ ИГРОК 1</button><button data-side="1">СОПЕРНИК ▶</button></div><div class="roster" id="roster"></div></div><div class="fighter-preview" id="previewTwo" data-side="1"><img class="preview-img" id="previewTwoImg" alt="Соперник"><div class="preview-head"><span class="corner"><em>P2</em> ВРАГ</span><button class="switch-btn" data-side="1">ВЫБРАТЬ</button></div><div class="preview-details"><h2 id="previewTwoName"></h2><p id="previewTwoDesc"></p><div class="statrow">СИЛА<div class="statbar"><span id="p2Pow"></span></div></div><div class="statrow">СКОР<div class="statbar"><span id="p2Spd"></span></div></div></div></div></div><div class="select-footer"><label>РЕЖИМ <select id="matchMode"><option value="cpu">ПРОТИВ КОМПЬЮТЕРА</option><option value="pvp">НА ДВОИХ</option><option value="campaign">📜 СЮЖЕТНАЯ КАМПАНИЯ</option><option value="arcade">АРКАДНЫЙ ТУРНИР</option><option value="survival">ВЫЖИВАНИЕ</option><option value="training">ТРЕНИРОВКА</option></select></label><label>СЛОЖНОСТЬ <select id="difficulty"><option value="easy">НОВИЧОК</option><option value="normal" selected>НОРМАЛЬНО</option><option value="hard">ЧЕМПИОН</option></select></label><label>АРЕНА <select id="arenaSelect"><option value="0">ПЫЛАЮЩИЙ ХРАМ</option><option value="1">ЛУННАЯ БЕЗДНА</option><option value="2">ИМПЕРСКИЙ ТРОН</option><option value="3">НЕОНОВЫЙ КВАРТАЛ</option><option value="4">ЗАБЫТЫЕ РУИНЫ</option><option value="5">СЛУЧАЙНАЯ</option></select></label><button class="primary" id="startBtn">⚔ НАЧАТЬ БОЙ</button></div><div class="advanced-options"><label><input type="checkbox" id="bloodToggle" checked> Кровь</label><label><input type="checkbox" id="shakeToggle" checked> Тряска камеры</label><label>Пиксели <select id="pixelPreset"><option value="retro">РЕТРО 320×180</option><option value="classic" selected>КЛАССИКА 480×270</option><option value="sharp">ЧЁТКО 960×540</option></select></label><label>Спарринг <select id="dummyMode"><option value="idle">СТОИТ</option><option value="guard">ДЕРЖИТ БЛОК</option><option value="attack">АТАКУЕТ</option></select></label></div><div class="record-row"><span>СЮЖЕТНЫХ КАМПАНИЙ: <b id="campaignCompleted">0/9</b></span><span>РЕКОРД ТУРНИРА: <b id="bestArcade">0</b></span><span>РЕКОРД ВЫЖИВАНИЯ: <b id="bestSurvival">0</b></span><span>ПОБЕД: <b id="totalWins">0</b></span></div><div class="help-inline">J / K — удары · I — тяжёлый · U — захват · Q — парирование · ПРОБЕЛ — рывок · S+J/K — апперкот / подсечка</div></section>
+<section class="campaign-screen hidden" id="campaignScreen" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+  <div class="campaign-shell">
+    <div class="campaign-top">
+      <div><span class="campaign-kicker">WEST INDIA KOMBAT · ИСТОРИЯ ГЕРОЯ</span><h2 id="storyTitle">КАМПАНИЯ</h2><p id="storySubtitle"></p></div>
+      <button class="ghost campaign-back" id="storyBackBtn">← К ВЫБОРУ</button>
+    </div>
+    <div class="campaign-chapters" id="storyChapters" aria-label="Прогресс истории"></div>
+    <div class="campaign-main">
+      <div class="campaign-portrait"><img id="storyHeroPic" alt="Главный герой"><div class="campaign-name" id="storyHeroName"></div></div>
+      <div class="campaign-narrative">
+        <div class="campaign-act" id="storyAct"></div><h3 id="storyMission"></h3>
+        <p class="campaign-intro" id="storyIntro"></p>
+        <div class="campaign-dialog"><span id="storyEnemyName"></span><p id="storyEnemyLine"></p></div>
+        <div class="campaign-dialog hero"><span id="storySpeaker"></span><p id="storyHeroLine"></p></div>
+        <p class="campaign-choice-title" id="storyChoiceTitle">ВЫБЕРИ ТАКТИКУ ПЕРЕД БОЕМ</p>
+        <div class="campaign-choices" id="storyChoices">
+          <button class="campaign-choice" data-approach="assault"><b>⚔ НАПОР</b><small>Мощный первый удар · +45 энергии · усиленная атака</small></button>
+          <button class="campaign-choice" data-approach="guard"><b>🛡 СТОЙКОСТЬ</b><small>Дополнительное здоровье · усиленная защита</small></button>
+        </div>
+        <div class="campaign-actions"><button class="primary" id="storyFightBtn">⚔ НАЧАТЬ ГЛАВУ</button><button class="ghost" id="storyRestartBtn">↻ С НАЧАЛА</button></div>
+        <p class="campaign-save-note" id="storySaveNote">Прогресс сохраняется на этом устройстве.</p>
+      </div>
+      <div class="campaign-portrait enemy"><img id="storyEnemyPic" alt="Соперник"><div class="campaign-name" id="storyOpponentName"></div></div>
+    </div>
+  </div>
+</section>
+<div class="overlay-panel hidden" id="pauseScreen"><div class="modal-box"><div class="eyebrow">THE BATTLE IS PAUSED</div><h2>ПАУЗА</h2><p>Пришло время решить, кто достоин победы.</p><div class="modal-buttons"><button class="primary" id="resumeBtn">▶ ПРОДОЛЖИТЬ</button><button class="ghost" id="toMenuBtn">ВЫБОР БОЙЦА</button></div></div></div>
+<div class="overlay-panel hidden" id="resultScreen"><div class="modal-box"><div class="eyebrow">THE TOURNAMENT HAS SPOKEN</div><h2 id="resultTitle">ПОБЕДА</h2><p id="resultSub"></p><div id="progressPanel"><div id="progressTitle">АРКАДНЫЙ ПУТЬ</div><div class="ladder" id="ladder"></div></div><div class="modal-buttons"><button class="primary" id="againBtn">⚔ РЕВАНШ</button><button class="ghost" id="backBtn">ВЫБРАТЬ ДРУГИХ</button></div></div></div>
+<div class="touch-controls" id="touchControls"><div class="touch-side"><button class="touch-button" data-key="a">◀</button><button class="touch-button" data-key="d">▶</button><button class="touch-button" data-key="w">↑</button><button class="touch-button" data-key="s">▣</button></div><div class="touch-side"><button class="touch-button action" data-key="j">УДАР</button><button class="touch-button action" data-key="k">НОГА</button><button class="touch-button action" data-key="l">✹ СИЛА</button><button class="touch-button action extra" data-key="i">ТЯЖ</button><button class="touch-button action extra" data-key="u">ХВАТ</button><button class="touch-button action extra" data-key="q">ПАРИ</button><button class="touch-button action extra" data-key=" ">РЫВОК</button></div></div>
+
+<section id="onlineModal" class="network-backdrop hidden" role="dialog" aria-modal="true" aria-label="Онлайн игра">
+  <div class="network-panel">
+    <button class="network-close" id="closeOnlineBtn" aria-label="Закрыть">✕</button>
+    <div class="eyebrow">BROWSER CO-OP • WEBRTC</div>
+    <h2>🌐 ИГРАТЬ С ДРУГОМ</h2>
+    <p class="network-lead">Два браузера, одна арена. Создай комнату и отправь другу ссылку. Друг управляет вторым персонажем.</p>
+    <div class="network-layout">
+      <div class="network-card">
+        <h3>1. СОЗДАТЬ КОМНАТУ</h3>
+        <label>Вид боя <select id="onlineKind"><option value="online-vs">⚔ 1 на 1</option><option value="online-coop">🤝 Вместе против босса</option></select></label>
+        <button class="network-action" id="createRoomBtn">СОЗДАТЬ КОМНАТУ</button>
+        <span class="network-mini">КОД: <b id="onlineRoomCode">—</b></span>
+        <div class="network-link"><input id="roomLink" placeholder="Ссылка появится здесь" readonly aria-label="Ссылка приглашения"><button id="copyLinkBtn">КОПИРОВАТЬ</button></div>
+      </div>
+      <div class="network-card">
+        <h3>2. ПОДКЛЮЧИТЬСЯ</h3>
+        <label>Код друга <input id="joinCode" autocomplete="off" placeholder="Вставь код комнаты" spellcheck="false"></label>
+        <button class="network-action" id="joinRoomBtn">ПОДКЛЮЧИТЬСЯ</button>
+        <span class="network-mini">Можно просто открыть ссылку друга.</span>
+      </div>
+    </div>
+    <p class="network-status" id="onlineStatus" aria-live="polite">Выбери режим и создай комнату или введи код друга.</p>
+    <div class="network-bottom"><button class="primary" id="goOnlineBtn" disabled>⚔ НАЧАТЬ СЕТЕВОЙ БОЙ</button><button class="ghost" id="leaveRoomBtn">ОТКЛЮЧИТЬСЯ</button></div>
+    <p class="network-footnote">Для онлайн-игры нужен интернет. Соединение устанавливается через бесплатный PeerJS Cloud; иногда прямое соединение невозможно из-за сети или брандмауэра. GitHub Pages сам не передаёт игровые данные.</p>
+  </div>
+</section>
+</main>
+<footer class="toolbar"><div class="control-group"><strong>ИГРОК 1</strong><span class="hint"><span class="kbd">A D</span> ходьба</span><span class="hint"><span class="kbd">W</span> прыжок</span><span class="hint"><span class="kbd">S / ПКМ</span> блок</span><span class="hint"><span class="kbd">J / ЛКМ</span> удар</span><span class="hint"><span class="kbd">K</span> нога</span><span class="hint"><span class="kbd">L</span> спецатака</span><span class="hint"><span class="kbd">I U Q SPACE</span> тяж / хват / парир / рывок</span></div><div class="control-group"><strong>ИГРОК 2</strong><span class="hint"><span class="kbd">← ↑ → ↓</span> движение / блок</span><span class="hint"><span class="kbd">1 2 3</span> удары</span><span class="hint"><span class="kbd">4 5 0 6</span> тяж / хват / парир / рывок</span></div><div class="tool-right">ЛКМ — удар • удерживать ПКМ — блок • I — тяжёлый • U — захват • Q — парирование • SPACE — рывок • S+J / S+K — апперкот / подсечка • ESC — пауза</div></footer>
+</div>
+<script src="./game.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js" defer></script>
+<script src="./network.js" defer></script>
+<script src="./campaign.js" defer></script>
+</body>
+</html>
