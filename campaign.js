@@ -3,7 +3,7 @@
    Nine independent character campaigns. Entirely local; no server or build step.
    Load after game.js and network.js to preserve their existing game modes. */
 const CAMPAIGN_LENGTH=6;
-const CAMPAIGN_STORAGE='wiko_story_campaigns_v1';
+const CAMPAIGN_STORAGE='wiko_story_campaigns_v2';
 const CAMPAIGNS=[
  {
   subtitle:'ЖЕЛЕЗНЫЙ НАТИСК',premise:'Под городом находится подпольная арена. Её хозяева выжимают из бойцов последние силы, а проигравшие исчезают. Бульдозер идёт вниз, чтобы разнести эту систему.',
@@ -112,6 +112,42 @@ const CAMPAIGNS=[
    [2,2,'ДОГОВОР МЕЛКИМ ШРИФТОМ','Дипломат предлагает безопасный договор, но в его тексте спрятана возможность потерять право на выбор.','Счётчик: 5/6. Шесть-Семь рвёт договор, оставляя себе свободу решения.','Я умею считать. Даже мелкий шрифт.'],
    [4,1,'СЕДЬМОЕ ЖЕЛАНИЕ','Космос питает автомат энергией целой планеты. Ещё одна победа активирует последнее желание.','Счётчик: 6/6. Шесть-Семь останавливает автомат до того, как тот загадочно произнесёт седьмое желание.','ШЕСТЬ! СЕМЬ! Моё желание — чтобы никто не выбирал за других!']
   ]
+ },
+ {
+  subtitle:'ДЕЛЕНИЕ НА 11',premise:'Фид Имид врывается в турнир, потому что кто-то украл его ствол и решил делить район без него. Он хочет вернуть своё имя и устроить собственные правила на арене.',
+  ending:'Фид Имид возвращает контроль над арсеналом, но вместо мести раздаёт трофеи своей команде. Теперь о нём говорят как о бойце, который умеет не только ломать, но и собирать вокруг себя людей.',
+  chapters:[
+   [10,3,'ЧУЖАЯ ЛОПАТА','Терпила утверждает, что видел, кто вынес ящики со склада, но сначала требует доказать силу.','После боя Терпила сдаёт имя первого посредника. След ведёт в неоновый квартал.','Кто делит без меня — тот проигрывает первым.'],
+   [7,3,'СИНИЙ КАНАЛ','Синий перехватил сигнал поставщиков и считает Фида частью банды.','Синий отдаёт координаты тайной перевалки и исчезает в тоннелях.','Открой канал. Мне нужен не шум, а цель.'],
+   [3,0,'КРАСНЫЙ ПЕРЕХВАТ','Красный 607 охраняет контейнер с разобранным оружием и работает по приказу неизвестного заказчика.','Контейнер открыт. Внутри лежит часть символики Фида и метка главаря.','Передай хозяевам: я уже рядом.'],
+   [5,4,'КАМЕННЫЙ СКЛАД','Камень не пропускает никого в старый склад, где спрятан основной тайник.','Двери склада разбиты, а внутри найден маршрут к последней точке обмена.','Хватит стоять стеной. Склад теперь мой.'],
+   [11,1,'СВАЙНЫЙ ПРИЧАЛ','Сваи перекрывает путь по воде и требует плату за проход на свой причал.','Лодка-арена раскачивается, и Фид получает последний код доступа.','Причал откроется. По-хорошему или по-моему.'],
+   [4,2,'ФИНАЛЬНЫЙ РАЗДЕЛ','Космос питает центральный арсенал энергией орбиты. Последний бой решит, кто контролирует весь запас.','Арсенал освобождён. Фид Имид поднимает свой автомат вверх, но стреляет уже не по людям, а в знак конца войны за склад.','Сегодня делим только победу.']
+  ]
+ },
+ {
+  subtitle:'ЛОПАТА ЧЕЛЛЕНДЖ',premise:'Терпила уверен, что над ним смеялись слишком долго. Он запускает собственный "лопата челлендж" и идёт доказывать, что даже самая нелепая легенда может стать страшной силой.',
+  ending:'Терпила добирается до вершины башни турнира и впервые слышит не смех, а аплодисменты. Он втыкает лопату в пол и клянётся использовать её только против тех, кто приходит унижать слабых.',
+  chapters:[
+   [9,3,'ПЕРВЫЙ БРОСОК','Фид Имид насмехается над лопатой, называя её игрушкой.','Лопата врезается в бетон рядом с Фидом. Он понимает, что шутки закончились.','Сейчас будет лопата челлендж.'],
+   [0,0,'СТЕНА СИЛЫ','Бульдозер не верит, что Терпила сможет пройти дальше одной победы.','После тяжёлого боя Бульдозер уважительно кивает и открывает путь.','Терпение тоже может пробить стену.'],
+   [2,2,'ПЛАН ПРОТИВ ЛОПАТЫ','Дипломат предлагает Терпиле забыть о турнире и уйти с деньгами.','Договор рвётся пополам. Терпила впервые выбирает не лёгкий путь, а свой.','Твоя бумага не крепче моей лопаты.'],
+   [5,4,'ЯМА ИЗ КАМНЯ','Камень считает, что лопата бессильна против скалы.','Терпила находит трещину и крошит оборону Камня.','Даже скале бывает больно.'],
+   [6,1,'ТЕНЬ ЗА СПИНОЙ','Призрак подкрадывается из темноты и пытается ударить первым.','Терпила разворачивается вовремя и впервые сам побеждает страх удара в спину.','В спину кидаю только я.'],
+   [11,2,'ПОСЛЕДНИЙ ЧЕЛЛЕНДЖ','Сваи делает арену из досок и кольев, чтобы Терпила оступился.','Терпила вырывает победу на шаткой арене и превращает свой мем в легенду турнира.','Терпи, арена. Я заканчиваю красиво.']
+  ]
+ },
+ {
+  subtitle:'СВАЙНЫЙ ПРИЧАЛ',premise:'Сваи — человек-лодка, на которой держится целый маленький народ. Когда турнир начинает забирать у его людей пирс за пирсом, он выходит на бой, чтобы вернуть им берег.',
+  ending:'После финальной победы пирсы остаются свободными, а люди Сваи строят новую мирную гавань. Герой-лодка больше не носит пассажиров к войне — только домой.',
+  chapters:[
+   [7,3,'НЕОН НА ВОДЕ','Синий устроил гонку вдоль каналов и не пускает чужаков к пирсу.','Синий признаёт скорость Сваи и указывает путь к тайному доку.','Пирс мой. Волна тоже моя.'],
+   [10,0,'ЛОПАТА ПРОТИВ ПРИЧАЛА','Терпила хочет перекопать подход к гавани и сорвать выход лодки.','Песок оседает, а Сваи прорывается дальше вместе со своими людьми.','Здесь будут сваи, а не ямы.'],
+   [4,1,'ОРБИТА НАД БЕРЕГОМ','Космос тянет прилив энергией кольца и сбивает лодки с курса.','Кольцо ослабевает. Вода снова слушается берег.','Даже звёзды не утянут мой причал.'],
+   [8,4,'ХАОС НА ПЛАВУ','Шесть-Семь устраивает ярмарку хаоса прямо на воде и путает сигнальные огни.','Сваи возвращает порядок в гавань и вылавливает координаты главного захватчика.','Лодка держится, даже когда мир штормит.'],
+   [0,0,'БУЛЬДОЗЕР У ПРИЧАЛА','Бульдозер охраняет мост и не понимает, что служит тем, кто хочет снести пирс.','После боя он отходит в сторону и помогает укрепить переправу.','Я везу не груз. Я везу людей.'],
+   [9,2,'ДЕЛЁЖ БЕРЕГА','Фид Имид собирается поделить весь берег на секторы и взять плату с каждой лодки.','После победы Сваи сбрасывает метки раздела в воду. Берег остаётся свободным для всех жителей пирса.','СВАИ! СВАИ! СВАИ! Берег никому не продам.']
+  ]
  }
 ];
 
@@ -119,14 +155,14 @@ let campaignState={active:false,hero:0,chapter:0,approach:'assault',ending:false
 function readCampaignSaves(){try{const data=JSON.parse(localStorage.getItem(CAMPAIGN_STORAGE)||'{}');return data&&typeof data==='object'?data:{}}catch(_){return {}}}
 function campaignProgress(hero){let p=readCampaignSaves()[hero];return Number.isInteger(p)?Math.min(CAMPAIGN_LENGTH,Math.max(0,p)):0}
 function saveCampaignProgress(hero,chapters){try{let save=readCampaignSaves();save[hero]=Math.max(campaignProgress(hero),Math.max(0,Math.min(CAMPAIGN_LENGTH,chapters)));localStorage.setItem(CAMPAIGN_STORAGE,JSON.stringify(save))}catch(_){}}
-function refreshCampaignRecords(){let n=CAMPAIGNS.reduce((count,_,i)=>count+(campaignProgress(i)>=CAMPAIGN_LENGTH?1:0),0);$('campaignCompleted').textContent=n+'/9';let tiles=Array.from($('roster').children);tiles.forEach((tile,i)=>{tile.classList.toggle('story-completed',campaignProgress(i)>=CAMPAIGN_LENGTH);tile.title=campaignProgress(i)+' / '+CAMPAIGN_LENGTH+' глав пройдено'})}
+function refreshCampaignRecords(){let n=CAMPAIGNS.reduce((count,_,i)=>count+(campaignProgress(i)>=CAMPAIGN_LENGTH?1:0),0);$('campaignCompleted').textContent=n+'/'+CAMPAIGNS.length;let tiles=Array.from($('roster').children);tiles.forEach((tile,i)=>{tile.classList.toggle('story-completed',campaignProgress(i)>=CAMPAIGN_LENGTH);tile.title=campaignProgress(i)+' / '+CAMPAIGN_LENGTH+' глав пройдено'})}
 function setStoryText(id,value){$(id).textContent=value}
 function storyMission(hero=campaignState.hero,chapter=campaignState.chapter){return CAMPAIGNS[hero].chapters[chapter]}
 function showCampaignScreen(){show('campaignScreen',true);show('selectScreen',false);show('resultScreen',false);show('pauseScreen',false);show('hud',false);show('fightStrip',false);show('announcement',false);show('toast',false);$('shell').classList.remove('selecting');gameMode='campaign-story';inputs={}}
 function storyDrawChapters(){let el=$('storyChapters');el.replaceChildren();const cleared=campaignProgress(campaignState.hero);for(let i=0;i<CAMPAIGN_LENGTH;i++){let sp=document.createElement('div');sp.className='campaign-step '+(i<cleared?'done':i===campaignState.chapter?'current':'locked');const no=document.createElement('b');no.textContent=i<cleared?'✓':String(i+1).padStart(2,'0');const label=document.createElement('small');label.textContent=CAMPAIGNS[campaignState.hero].chapters[i][2];sp.append(no,label);el.append(sp)}}
 function campaignShowChapter(){campaignState.ending=false;$('campaignScreen').classList.remove('campaign-ending');const hero=campaignState.hero,arc=CAMPAIGNS[hero],ch=campaignState.chapter,mission=storyMission(),foe=mission[0];selected[0]=hero;selected[1]=foe;setStoryText('storyTitle',fighters[hero].name+' · ИСТОРИЯ');setStoryText('storySubtitle',arc.subtitle);setStoryText('storyAct','ГЛАВА '+(ch+1)+' / '+CAMPAIGN_LENGTH+' · '+(['НАЧАЛО','ПОИСК','ПРЕПЯТСТВИЕ','ПОВОРОТ','РАСКРЫТИЕ','ФИНАЛ'][ch]));setStoryText('storyMission',mission[2]);setStoryText('storyIntro',mission[3]);setStoryText('storyEnemyName',fighters[foe].name.toUpperCase());setStoryText('storyEnemyLine','«'+fighters[foe].quote+'»');setStoryText('storySpeaker',fighters[hero].name);setStoryText('storyHeroLine','«'+mission[5]+'»');setStoryText('storyHeroName',fighters[hero].name);setStoryText('storyOpponentName',fighters[foe].name);$('storyHeroPic').src=PORTRAITS[hero];$('storyEnemyPic').src=PORTRAITS[foe];setStoryText('storyChoiceTitle','ВЫБЕРИ ТАКТИКУ ПЕРЕД БОЕМ');show('storyChoices',true);show('storyFightBtn',true);show('storyEnemyPic',true);setStoryText('storyFightBtn','⚔ НАЧАТЬ ГЛАВУ '+(ch+1));setStoryText('storyRestartBtn','↻ С НАЧАЛА');setStoryText('storySaveNote','Прогресс: '+campaignProgress(hero)+' / '+CAMPAIGN_LENGTH+' глав. Сохраняется в этом браузере на этом устройстве.');campaignSelectApproach(campaignState.approach);storyDrawChapters();showCampaignScreen()}
 function campaignSelectApproach(mode){campaignState.approach=mode;document.querySelectorAll('.campaign-choice').forEach(btn=>{const on=btn.dataset.approach===mode;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',String(on))})}
-function campaignShowEnding(){campaignState.ending=true;$('campaignScreen').classList.add('campaign-ending');const arc=CAMPAIGNS[campaignState.hero],hero=fighters[campaignState.hero];setStoryText('storyTitle',hero.name+' · ЭПИЛОГ');setStoryText('storySubtitle',arc.subtitle);setStoryText('storyAct','ИСТОРИЯ ПРОЙДЕНА • 6 / 6');setStoryText('storyMission','ИСТОРИЯ ЗАВЕРШЕНА');setStoryText('storyIntro',arc.ending);setStoryText('storyFightBtn','▶ НАЧАТЬ ЗАНОВО');setStoryText('storyRestartBtn','← ДРУГОЙ ГЕРОЙ');setStoryText('storySaveNote','Прогресс кампании сохранён. Остальные восемь историй доступны в выборе бойца.');storyDrawChapters();showCampaignScreen();tone(600,.25,'triangle',.05)}
+function campaignShowEnding(){campaignState.ending=true;$('campaignScreen').classList.add('campaign-ending');const arc=CAMPAIGNS[campaignState.hero],hero=fighters[campaignState.hero];setStoryText('storyTitle',hero.name+' · ЭПИЛОГ');setStoryText('storySubtitle',arc.subtitle);setStoryText('storyAct','ИСТОРИЯ ПРОЙДЕНА • 6 / 6');setStoryText('storyMission','ИСТОРИЯ ЗАВЕРШЕНА');setStoryText('storyIntro',arc.ending);setStoryText('storyFightBtn','▶ НАЧАТЬ ЗАНОВО');setStoryText('storyRestartBtn','← ДРУГОЙ ГЕРОЙ');setStoryText('storySaveNote','Прогресс кампании сохранён. Остальные '+(CAMPAIGNS.length-1)+' историй доступны в выборе бойца.');storyDrawChapters();showCampaignScreen();tone(600,.25,'triangle',.05)}
 function openCampaign(hero){campaignState.active=true;campaignState.hero=hero;campaignState.chapter=campaignProgress(hero);campaignState.approach='assault';campaignState.ending=false;runMode='campaign';matchMode='cpu';if(campaignState.chapter>=CAMPAIGN_LENGTH)campaignShowEnding();else campaignShowChapter()}
 function campaignEnterFight(){if(campaignState.ending){campaignState.chapter=0;campaignState.ending=false;campaignShowChapter();return}if(!campaignState.active)return;initAudio();const mission=storyMission(),ch=campaignState.chapter;runMode='campaign';matchMode='cpu';challengeDifficulty=$('difficulty').value;selected[0]=campaignState.hero;selected[1]=mission[0];arenaIndex=mission[1];stage=ch;round=1;score=[0,0];tournamentCleared=false;resetRound();show('campaignScreen',false);show('selectScreen',false);show('resultScreen',false);show('pauseScreen',false);show('hud',true);show('fightStrip',true);show('bossMeter',false);gameMode='intro';updateRunHUD();announce('ГЛАВА '+(ch+1),'ИСТОРИЯ: '+mission[2],126);tone(320,.16);setStoryText('storyFightBtn','⚔ НАЧАТЬ ГЛАВУ')}
 function campaignResetChapter(){if(!campaignState.active)return;campaignState.chapter=0;campaignState.ending=false;campaignShowChapter()}
